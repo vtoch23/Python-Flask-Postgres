@@ -6,7 +6,27 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+      'sans': ['Roboto'],
+    },
+    extend: {
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        "16": "repeat(16, minmax(0, 1fr))",
+      },
+      gridColumnStart: {
+        "13": "13",
+        "14": "14",
+        "15": "15",
+        "16": "16",
+        "17": "17",
+      },
+      gridColumnEnd: {
+        "13": "13",
+        "14": "14",
+        "15": "15",
+        "16": "16",
+        "17": "17",
+      },
     }
   },
   plugins: [
