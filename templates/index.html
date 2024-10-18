@@ -8,51 +8,51 @@
 </head>
 
 <body class="bg-white p-4">
-    <div class="w-5/6 text-center mx-auto shadow rounded bg-teal-400 p-6">
-        <h1 class="font-bold text-white text-4xl my-5 text-center">My PostGreSQL app</h1>
+    <div class="w-5/6 text-center mx-auto shadow rounded bg-teal-400 p-10">
+        <h1 class="font-bold text-white text-2xl mb-3 text-center border-b-2 mx-15">My PostGreSQL app</h1>
+
         <div class="lg:max-w-xl sm:max-w-full flex-col flex text-left justify-start py-2 text-white">
             <div class="font-bold w-32 text-left">ID</div>
             <div class="w-32 text-left">Name</div>
             <div class="w-32 text-left">Price</div>
         </div>
+
         {% for row in data %}
         <div class="lg:max-w-full flex-col lg:flex text-left justify-between py-2 sm:flex-none">
-
-            <div class="lg:max-w-xl sm:max-w-full flex-col flex text-left justify-start py-2">
-                <div class="w-32 text-white font-extrabold text-left"> {{ row[0] }}</div>
-                <div class="w-32 text-left"> {{ row[1] }}</div>
-                <div class="w-32 text-left"> {{ row[2] }}</div>
-            </div>
-
-            <div class="lg:max-w-lg sm:max-w-full flex-col lg:flex text-left justify-end py-2 float-right sm:flex-none">
-                <div class="flex flex-col h-8">
-                    <form class="lg:flex flex-col px-2 sm:flex-none" action="/update" method="post">
+            <div class="lg:max-w-xl sm:max-w-full flex-col lg:flex text-left justify-between py-2 sm:flex-none">
+                <div class="lg:max-w-xl sm:max-w-full flex-col flex text-left justify-start py-2">
+                    <div class="w-32 text-white font-extrabold text-left"> {{ row[0] }}</div>
+                    <div class="w-32 text-left"> {{ row[1] }}</div>
+                    <div class="w-32 text-left"> {{ row[2] }}</div>
+                </div>
+                
+                <div class="lg:flex md:flex flex-col px-2 sm:flex-none w-fit justify-between">
+                    <div>
+                        <form action="/update" method="post">
                         <input type="hidden" name="id" value="{{ row[0] }}">
-                        <input class="input w-80 h-8 shadow rounded-sm bg-slate-200 p-1 mr-2" type="text" name="name"
+                        <input class="input w-80 h-8 shadow rounded-sm bg-slate-200 p-1 mr-2 my-1" type="text" name="name"
                             value="{{ row[1] }}">
-                        <input class="input w-80 h-8 shadow rounded-sm bg-slate-200 p-1" type="int" name="price"
+                        <input class="input w-80 h-8 shadow rounded-sm bg-slate-200 p-1 my-1 mr-2" type="int" name="price"
                             value="{{ row[2] }}">
                 </div>
                 <div class="flex flex-col h-8">
                     <form action="/update" method="post">
                         <input
-                            class="shadow text-sm right-0 h-8 font-bold px-4 mr-2 py-1 text-black rounded-lg hover:bg-black hover:text-white"
+                            class="shadow text-sm right-0 h-8 font-bold px-4 mr-2 my-1 py-1 text-black rounded-lg hover:bg-black hover:text-white"
                             type="submit" value="Update">
                     </form>
                     <form action="/delete" method="post">
                         <input type="hidden" name="id" value="{{ row[0] }}">
                         <input
-                            class="shadow text-sm right-0 h-8 font-bold px-4 py-1 text-black rounded-lg hover:bg-black hover:text-white"
+                            class="shadow text-sm right-0 h-8 font-bold px-4 my-1 py-1 text-black rounded-lg hover:bg-black hover:text-white"
                             type="submit" value="Delete">
                     </form>
                 </div>
             </div>
+            </div>
 
         </div>
         {% endfor %}
-
-    </div>
-
     </div>
 
     <div class="w-5/6 text-center mx-auto shadow rounded bg-teal-400 p-6 border-t-2">
@@ -63,7 +63,7 @@
             <input class="input w-80 h-9 shadow mt-2 rounded-sm bg-slate-200 p-2" type="int" name="price"
                 placeholder="Price">
             <input
-                class="shadow align-baseline text-sm right-0 font-bold px-4 py-2 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-white"
+                class="shadow align-baseline text-sm right-0 font-bold px-4 m-2 py-2 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-white"
                 type="submit" value="Create">
         </form>
     </div>
