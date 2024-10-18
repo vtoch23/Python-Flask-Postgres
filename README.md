@@ -1,0 +1,1 @@
+An app, creted with Python and Flask, which uses Postgres to save details into the database.
