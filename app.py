@@ -39,7 +39,6 @@ def index():
     # close the cursor and connection
     cur.close()
     conn.close()
-    print('Hello')
     return render_template('index.html', data=data)
 
 
